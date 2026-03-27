@@ -11,6 +11,15 @@ export interface DetectedVehicle {
   confidence: number;
 }
 
+export interface VehicleRecord {
+  id: string;
+  vehicle: DetectedVehicle;
+  snapshot: string; // base64 image
+  timestamp: number;
+  isOverspeeding: boolean;
+  location?: string;
+}
+
 export interface DetectionResult {
   vehicles: DetectedVehicle[];
   timestamp: number;
@@ -19,5 +28,7 @@ export interface DetectionResult {
 
 export interface ApiConfig {
   baseUrl: string;
-  frameInterval: number; // ms between frame captures
+  frameInterval: number;
 }
+
+export const SPEED_LIMIT = 60; // km/h

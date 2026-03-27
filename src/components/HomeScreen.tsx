@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Camera, Zap, Shield, Gauge } from "lucide-react";
+import { Camera, Zap, Shield, Gauge, History } from "lucide-react";
 
 interface HomeScreenProps {
   onStart: () => void;
+  onHistory: () => void;
+  historyCount: number;
 }
 
-const HomeScreen = ({ onStart }: HomeScreenProps) => {
+const HomeScreen = ({ onStart, onHistory, historyCount }: HomeScreenProps) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 grid-pattern">
       {/* Decorative top bar */}
@@ -31,14 +33,26 @@ const HomeScreen = ({ onStart }: HomeScreenProps) => {
         <FeatureCard icon={<Shield className="w-5 h-5 text-primary" />} title="AI Powered" description="Deep learning models" />
       </div>
 
-      {/* Start button */}
-      <Button variant="neon" size="lg" className="px-10 py-6 text-base rounded-xl" onClick={onStart}>
-        <Camera className="w-5 h-5 mr-2" />
-        Start Detection
-      </Button>
+      {/* Buttons */}
+      <div className="flex flex-col gap-3 items-center">
+        <Button variant="neon" size="lg" className="px-10 py-6 text-base rounded-xl" onClick={onStart}>
+          <Camera className="w-5 h-5 mr-2" />
+          Start Detection
+        </Button>
+
+        <Button variant="outline" size="lg" className="px-8 py-5 rounded-xl text-sm" onClick={onHistory}>
+          <History className="w-4 h-4 mr-2" />
+          View History
+          {historyCount > 0 && (
+            <span className="ml-2 bg-primary/20 text-primary text-xs font-mono px-2 py-0.5 rounded-full">
+              {historyCount}
+            </span>
+          )}
+        </Button>
+      </div>
 
       <p className="text-muted-foreground text-xs mt-6 text-center">
-        Camera access required • Works best in well-lit areas
+        Camera access required • Speed limit: 60 km/h
       </p>
     </div>
   );

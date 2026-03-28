@@ -29,7 +29,7 @@ const HomeScreen = ({ onStart, onHistory, historyCount }: HomeScreenProps) => {
       {/* Feature cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 w-full max-w-md sm:max-w-xl">
         <FeatureCard icon={<Camera className="w-5 h-5 text-primary" />} title="ADITYA DOES PRETTY MUCH ANYTHING HAHAH" description="Real-time camera feed" />
-        <FeatureCard icon={<Zap className="w-5 h-5 text-accent" />} title="Madhura" description="Instant speed readout" />
+        <FeatureCard icon={<Zap className="w-5 h-5 text-accent" />} title="Madhura ubhe" description="Instant speed readout" />
         <FeatureCard icon={<Shield className="w-5 h-5 text-primary" />} title="AI Powered" description="Deep learning models" />
       </div>
 
